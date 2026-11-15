@@ -1,0 +1,19 @@
+column,missing_count,missing_percentage,handling_method
+salary_range,15012,83.96,"Engineered binary indicator 'missing_salary' (1 if NaN, 0 if present) before text aggregation; raw string excluded from model features"
+department,11547,64.58,"Not used in modeling; dropped due to high sparsity (>64% missing) and high cardinality (1,337 unique)"
+required_education,8105,45.33,Not used in baseline model; dropped
+benefits,7212,40.34,Missing values filled with empty string ('') and concatenated into unified 'text' for TF-IDF vectorization
+required_experience,7050,39.43,Not used in baseline model; dropped
+function,6455,36.1,Not used in modeling; dropped due to high cardinality (37 categories)
+industry,4903,27.42,Not used in modeling; dropped due to high cardinality (131 categories)
+employment_type,3471,19.41,Not used in baseline model; dropped
+company_profile,3308,18.5,"Engineered binary indicator 'missing_company_profile' (1 if NaN, 0 if present); missing text filled with empty string ('') and concatenated into 'text' for TF-IDF"
+requirements,2696,15.08,Missing values filled with empty string ('') and concatenated into unified 'text' for TF-IDF vectorization
+location,346,1.94,Not used in modeling; dropped due to high cardinality and semi-structured free text
+description,1,0.01,Engineered binary indicator 'short_description' (1 if <30 words or NaN); filled with empty string ('') and concatenated into 'text' for TF-IDF
+title,0,0.0,Complete; concatenated into unified 'text' for TF-IDF vectorization
+job_id,0,0.0,"Complete; preserved in data for record identification, excluded from model training"
+telecommuting,0,0.0,Complete binary flag; passed directly to model as passthrough numeric feature
+has_questions,0,0.0,Complete binary flag; passed directly to model as passthrough numeric feature
+has_company_logo,0,0.0,Complete binary flag; passed directly to model as passthrough numeric feature
+fraudulent,0,0.0,Complete binary ground truth; target variable for supervised classification

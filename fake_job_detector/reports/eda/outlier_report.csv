@@ -1,0 +1,16 @@
+metric,value,description
+total_train_samples,12852,Number of job postings in the training partition
+q1_word_count,247.0,25th percentile word count
+q3_word_count,503.0,75th percentile word count
+iqr_word_count,256.0,Interquartile Range (Q3 - Q1)
+lower_bound_words,0.0,"Lower threshold: max(0, Q1 - 1.5*IQR)"
+upper_bound_words,887.0,Upper threshold: Q3 + 1.5*IQR
+num_outliers,264,Number of postings with word count exceeding upper bound
+pct_outliers,2.05,Percentage of training postings identified as outliers
+num_non_outliers,12588,Number of normal postings within IQR boundaries
+fraud_count_outliers,9,Fraudulent job ads among length outliers
+fraud_rate_outliers_pct,3.41,Fraud rate (%) within the length outlier cohort
+fraud_count_non_outliers,565,Fraudulent job ads among non-outlier postings
+fraud_rate_non_outliers_pct,4.49,Fraud rate (%) within non-outlier cohort
+overall_train_fraud_rate_pct,4.47,Baseline fraud rate across all training postings
+outlier_decision,Retained without truncation,Long ads are legitimate corporate postings; sublinear TF and L2 normalization mitigate length influence
